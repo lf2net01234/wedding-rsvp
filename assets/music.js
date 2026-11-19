@@ -42,7 +42,7 @@
 
   window.onYouTubeIframeAPIReady = function () {
     player = new YT.Player('music-player', {
-      videoId: id,
+      videoId: id, width: 200, height: 200,
       playerVars: { playsinline: 1, rel: 0, loop: 1, playlist: id },
       events: {
         onReady: function () { ready = true; console.log('[RSVP music] ready id=%s', id); if (wantPlay) player.playVideo(); },
