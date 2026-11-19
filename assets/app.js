@@ -63,7 +63,8 @@
       return '<label class="opt"><input type="radio" name="main-' + i + '" value="' + k + '" data-act="main" data-i="' + i + '"' +
         (p.main === k ? ' checked' : '') + '><span>' + esc(menu.mains[k]) + '</span></label>';
     }).join('');
-    var courses = menu.courses.map(function (c) { return '<dt>' + esc(c[0]) + '</dt><dd>' + esc(c[1]) + '</dd>'; }).join('');
+    var menuAlt = menu.courses.map(function (c) { return c[0] + '：' + c[1]; }).join('；');
+    var menuImg = '<img class="menu-img" src="assets/menu-' + p.diet + '.jpg" loading="lazy" alt="' + esc(menu.label + '菜單。' + menuAlt) + '">';
     var chips = ALLERGENS.map(function (a) {
       return '<label class="chip"><input type="checkbox" data-act="alg" data-i="' + i + '" value="' + esc(a) + '"' +
         (p.allergies.indexOf(a) >= 0 ? ' checked' : '') + '><span>' + esc(a) + '</span></label>';
@@ -81,7 +82,7 @@
       '<fieldset class="field"><legend class="q">主菜三選一 <i>*</i></legend><div class="opts">' + mains + '</div>' +
       (p.diet === 'veg' ? '<p class="veg-note">＊此套餐為蛋奶素（含起司、奶酪）</p>' : '') +
       '<p class="err" data-err="main_' + i + '"></p>' +
-      '<details><summary>看' + menu.label + '完整內容</summary><dl class="courses">' + courses + '</dl></details></fieldset>' +
+      '<details><summary>看' + menu.label + '完整內容</summary>' + menuImg + '</details></fieldset>' +
       '<div class="field"><label class="check"><input type="checkbox" data-act="child" data-i="' + i + '"' + (p.child ? ' checked' : '') +
       '><span>這位是小朋友</span></label>' +
       (p.child ? '<label class="check"><input type="checkbox" data-act="highChair" data-i="' + i + '"' + (p.highChair ? ' checked' : '') +

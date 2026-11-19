@@ -17,6 +17,7 @@
   <script defer src="assets/form-state.js"></script>
   <script defer src="assets/api.js"></script>
   <script defer src="assets/app.js"></script>
+  <script defer src="assets/music.js"></script>
 </head>
 <body>
   <header class="hero">
@@ -29,7 +30,17 @@
     <p class="hero-sub">誠摯邀請您來大院子，<br>一起分享我們的喜悅</p>
   </header>
 
+  <button type="button" id="music-btn" class="music-btn" aria-label="播放音樂" aria-pressed="false" hidden>
+    <span class="disc">♪</span>
+  </button>
+
   <main>
+    <section class="card reveal music-card" id="music-card" hidden>
+      <h2>🎵 我們的歌</h2>
+      <p class="hint">Love Like You — Steven Universe</p>
+      <div class="music-frame"><div id="music-player"></div></div>
+    </section>
+
     <section class="card reveal" id="info">
       <h2>🌿 婚宴資訊</h2>
       <dl class="facts">
